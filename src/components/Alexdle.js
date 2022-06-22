@@ -18,8 +18,8 @@ export default function Alexdle({solution}) {
     <div>
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn}/>
         <br></br>
-        <div className='test'>Current Guess - <b>{currentGuess}</b> </div>
-        <div className='test'>Solution - <b>{solution}</b> </div>
+        <div>Current Guess - <b>{currentGuess}</b> </div>
+        <div>Solution - <b>{solution}</b> </div>
     </div>
   )
 }
