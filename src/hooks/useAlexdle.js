@@ -6,6 +6,7 @@ const useAlexdle = (solution) => {
     const [guesses, setGuesses] = useState([...Array(6)])
     const [history, setHistory] = useState([])
     const [isCorrect, setIsCorrect] = useState(false)
+    const [usedKeys, setUsedKeys] = useState({})
 
     // format new guess when user enters a word
     const formatGuess = () => {
@@ -54,6 +55,27 @@ const useAlexdle = (solution) => {
         setTurn((prevTurn) => {
             return prevTurn + 1
         })
+        setUsedKeys((prevUsedKeys) => {
+            let newKeys = {...prevUsedKeys}
+
+            formattedGuess.forEach((l) => {
+                const currentColour = newKeys[l.key]
+                if(l.colour === 'green'){
+                    newKeys[l.key] = 'green'
+                    return
+                }
+                else if(l.colour === 'yellow' && currentColour !== 'green'){
+                    newKeys[l.key] = 'yellow'
+                    return
+                }
+                else if(l.colour === 'grey' && (currentColour !== 'green' || currentColour !== 'yellow')){
+                    newKeys[l.key] = 'grey'
+                    return
+                }
+            })
+
+            return newKeys
+        })
 
         setCurrentGuess('')
     }
@@ -94,7 +116,7 @@ const useAlexdle = (solution) => {
         }
     }
 
-    return {turn, currentGuess, guesses, isCorrect, handleKeyup}
+    return {turn, currentGuess, guesses, usedKeys, isCorrect, handleKeyup}
 
 }
 

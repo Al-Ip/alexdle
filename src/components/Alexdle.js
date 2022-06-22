@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import useAlexdle from '../hooks/useAlexdle'
 import Grid from './Grid'
+import Keypad from './Keypad'
 
 export default function Alexdle({solution}) {
-    const {currentGuess, handleKeyup, guesses, isCorrect, turn} = useAlexdle(solution)
+    const {currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys} = useAlexdle(solution)
 
     useEffect(() => {
         window.addEventListener('keyup', handleKeyup)
@@ -20,6 +21,7 @@ export default function Alexdle({solution}) {
         <br></br>
         <div>Current Guess - <b>{currentGuess}</b> </div>
         <div>Solution - <b>{solution}</b> </div>
+        <Keypad usedKeys={usedKeys} />
     </div>
   )
 }
