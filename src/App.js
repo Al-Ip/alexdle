@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Alexdle from "./components/Alexdle";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   return (
     <div className='App'>
       <h1>Alexdle</h1>
-      {solution && <div>Solution is: {solution}</div>}
+      {solution && <Alexdle solution={solution}/>}
     </div>
   );
 }
