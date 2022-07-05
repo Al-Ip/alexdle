@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Alexdle from "./components/Alexdle";
-
+import Header from './components/Header'
 
 function App() {
   const [solution, setSolution] = useState(null)
@@ -17,7 +17,7 @@ function App() {
   
   return (
     <div className='App'>
-      <h1>Alexdle</h1>
+      <Header />
       {solution && <Alexdle solution={solution}/>}
     </div>
   );
