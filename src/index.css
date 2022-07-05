@@ -290,7 +290,7 @@ body {
 }
 
 @media (min-width: 444px) {
-  .app-module {
+  .expandToRow {
       display:flex;
       flex-direction: row;
       align-items: center;
