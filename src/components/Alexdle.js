@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import useAlexdle from '../hooks/useAlexdle'
 import Grid from './Grid'
 import Keypad from './Keypad'
 import Modal from './Modal'
 
 export default function Alexdle({solution}) {
-    const {currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys, handleClick} = useAlexdle(solution)
+    const {currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys} = useAlexdle(solution)
     const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
@@ -23,15 +23,15 @@ export default function Alexdle({solution}) {
         return () => {
           window.removeEventListener('keyup', handleKeyup)
         }
-    }, [handleKeyup, isCorrect])
+    }, [handleKeyup, isCorrect, turn])
 
   return (
-    <div className='app-module'>
+    <Fragment>
         <div className='board-container'>
           <Grid currentGuess={currentGuess} guesses={guesses} turn={turn}/>
         </div>
         <Keypad usedKeys={usedKeys} handleKeyup={handleKeyup} />
         {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution} /> }
-    </div>
+    </Fragment>
   )
 }

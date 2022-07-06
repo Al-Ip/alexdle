@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Alexdle from "./components/Alexdle";
-import Header from './components/Header'
 
 function App() {
   const [solution, setSolution] = useState(null)
@@ -16,10 +15,9 @@ function App() {
   }, [setSolution]) 
   
   return (
-    <div className='App'>
-      <Header />
+    <Fragment>
       {solution && <Alexdle solution={solution}/>}
-    </div>
+    </Fragment>
   );
 }
 
