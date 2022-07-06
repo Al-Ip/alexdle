@@ -76,7 +76,6 @@ const useAlexdle = (solution) => {
                 }
             })
 
-            console.log(newKeys)
             return newKeys
         })
 
@@ -121,42 +120,6 @@ const useAlexdle = (solution) => {
             })
         }
     }
-
-    // const handleClick = (e) => {
-    //     let dataKey = e.target.getAttribute('data-key');
-    //     var isOnlyLetters = /^[A-Za-z]$/.test(dataKey)
-
-    //     if(dataKey === 'Enter'){
-    //         if(turn > 5){
-    //             console.log('Used up all your guesses')
-    //             return
-    //         }
-    //         if(history.includes(currentGuess)){
-    //             console.log('Already tried that word')
-    //             return
-    //         }
-    //         if(currentGuess.length !== 5){
-    //             console.log('Word must be 5 characters long')
-    //             return
-    //         }
-
-    //         addNewGuess(formatGuess())
-    //         console.log(formatGuess())
-    //     }
-
-    //     if(dataKey === 'Backspace'){
-    //         setCurrentGuess((prev) => {
-    //             return prev.slice(0, -1)
-    //         })
-    //         return
-    //     }
-
-    //     if(isOnlyLetters && currentGuess.length < 5){
-    //         setCurrentGuess((prev) => {
-    //             return prev + dataKey
-    //         })
-    //     }
-    //}
 
     return {turn, currentGuess, guesses, usedKeys, isCorrect, handleKeyup}
 
