@@ -1,6 +1,5 @@
 body {
   height: 100vh;
-  /* height: 100%; */
   background-color: #ffffff;
   margin: 0;
   padding: 0;
@@ -84,8 +83,8 @@ body {
 }
 
 .board {
-  width: 347px;
-  height: 414px;
+  width: 350px;
+  height: 420px;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 5px;
@@ -178,7 +177,7 @@ body {
 
 .keypad .keypad-row > div {
   font-family: inherit;
-  font-weight: bold;
+  font-weight: 550;
   border: 0;
   padding: 0;
   margin: 0 6px 0 0;
@@ -213,17 +212,17 @@ body {
   padding: 0 5px 0 5px;
 }
 
-.keypad > div.green {
+.keypad .keypad-row > div.green {
   background: #6aaa64;
   color: #fff;
   transition: all 0.3s ease-in;
 }
-.keypad > div.yellow {
+.keypad .keypad-row > div.yellow {
   background: #e2cc68;
   color: #fff;
   transition: all 0.3s ease-in;
 }
-.keypad > div.grey {
+.keypad .keypad-row > div.grey {
   background: #787c7e;
   color: #fff;
   transition: all 0.3s ease-in;
@@ -286,7 +285,7 @@ body {
   }
   100% {
     transform: scale(1);
-    border: 1px solid #878a8c;
+    border: 2px solid #878a8c;
   }
 }
 
@@ -304,17 +303,10 @@ body {
 }
 
 @media (max-width: 360px) {
-  /* .header .header-module_title {
+   .header .header-module_title {
     font-size: 22px;
     letter-spacing: 0.1rem;
   }
-}
-
-@media (min-width: 444px) {
-  .board {
-    width: 45%;
-    height: 25vh;
-  } */
 }
 
 /* Small Devices, Tablets */
