@@ -1,10 +1,10 @@
-#root {
+body {
   height: 100%;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 0;
-    overflow-y: hidden;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .app-module {
@@ -289,17 +289,60 @@
   }
 }
 
-@media (min-width: 444px) {
-  .expandToRow {
-      display:flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-      flex-wrap: nowrap
+@media (max-height: 600px) {
+  .row .row-individual-square {
+    font-size: 1em;
+    line-height: 1em;
   }
 }
 
-@media (max-width: 991.98px) {
+@media (min-width: 415px) {
+  .header {
+    padding: 0px 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  /* .header .header-module_title {
+    font-size: 22px;
+    letter-spacing: 0.1rem;
+  }
+}
+
+@media (min-width: 444px) {
+  .board {
+    width: 45%;
+    height: 25vh;
+  } */
+}
+
+/* Small Devices, Tablets */
+/* @media only screen and (min-width : 768px) {
+  body {
+    width: 75%;
+  }
+} */
+
+/* Medium Devices, Desktops */
+/* @media only screen and (min-width : 992px) {
+  body {
+    width: 50%;
+  }
+} */
+
+/* @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Page-module_content__hwN4l {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .Page-module_close__D3gaa {
+    padding: 0 16px;
+  }
+} */
+
+
+/* @media (max-width: 991.98px) {
   .mobileColumn {
       display:flex;
       flex-direction: column;
@@ -307,58 +350,4 @@
       justify-content: center;
       flex-wrap: nowrap
   }
-}
-
-@media (max-width: 800px) {
-  .ccpa-snackbar {
-      bottom:20px
-  }
-
-  .ccpa-snackbar__msg,.ccpa-snackbar__terms {
-      font-size: 14px
-  }
-}
-
-@media (max-width: 576px) {
-  .ccpa-snackbar {
-      padding:20px;
-      max-width: 90%
-  }
-
-  .ccpa-snackbar__msg,.ccpa-snackbar__header {
-      padding: 10px 0
-  }
-
-  .ccpa-snackbar__header {
-      margin-right: 50px;
-      margin-left: 15px
-  }
-
-  .ccpa-snackbar__msg {
-      margin-bottom: 10px;
-      margin-right: 25px;
-      margin-left: 15px;
-      padding-top: 5px
-  }
-
-  .ccpa-snackbar__terms {
-      margin: 0 0 15px 0;
-      padding: 15px
-  }
-
-  .ccpa-snackbar__dismiss {
-      display: none
-  }
-
-  .ccpa-snackbar__dismiss-icon {
-      top: 17px
-  }
-
-  .ccpa-bottom {
-      margin-left: 0
-  }
-
-  .ccpa-privacy-link {
-      margin-left: 15px
-  }
-}
+} */
