@@ -5,7 +5,7 @@ function App() {
   const [solution, setSolution] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:3001/solutions')
+    fetch('http://192.168.0.122:3001/solutions')
     .then(res => res.json())
     .then(json => {
       // generate random int between min and max id in solution json i.e. json[random]
