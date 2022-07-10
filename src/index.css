@@ -1,43 +1,119 @@
 body {
-  text-align: center;
-  font-size: 1em;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  margin: 0;
+  height: 100vh;
   background-color: #ffffff;
+  margin: 0px;
+  padding: 0px;
+  overflow-y: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-h1 {
-  font-weight: 700;
-  font-size: 37px;
+.app-module {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 0 16px;
+  height: 50px;
+  color: #000000;
+  border-bottom: 1px solid #d3d6da;
+}
+
+.header-module {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  width: 70px;
+  justify-content: flex-start;
+}
+
+.header-module_title {
+  font-weight: 800;
+  font-variant: small-caps;
+  font-variant-caps: titling-caps;
+  font-size: 40px;
   line-height: 100%;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.04em;
   text-align: center;
   left: 0;
   right: 0;
   pointer-events: none;
-  color: #000;
-  border-bottom: 1px solid #d3d6da;
-  margin: 0 0 30px 0;
-  padding: 20px;
+  position: relative;
+}
+
+.header-module_menu {
+  display: flex;
+  width: 70px;
+  justify-content: flex-end;
+}
+
+#header-module_navButton {
+  padding-top: 2px;
+}
+
+.header-module_icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.header-module_menu {
+  display: flex;
+  width: 70px;
+  justify-content: flex-end;
+}
+
+.board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.board {
+  width: 350px;
+  height: 420px;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 5px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .row {
-  text-align: center;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
 }
 
 .row > div {
-  display: block;
-  width: 60px;
-  height: 60px;
-  border: 1px solid #d3d6da;
-  margin: 4px;
-  text-align: center;
-  line-height: 60px;
-  text-transform: uppercase;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 2rem;
   font-weight: bold;
-  font-size: 2.5em;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 2px solid #d3d6da;
+  color: #000000;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .row > div.green {
@@ -79,30 +155,75 @@ h1 {
 }
 
 .keypad {
-  max-width: 500px;
-  margin: 20px auto;
-}
-.keypad > div {
-  margin: 5px;
-  width: 40px;
-  height: 50px;
-  background: #d3d6da;
-  display: inline-block;
-  border-radius: 6px;
-  line-height: 50px;
+  flex: auto;
+  height: 200px;
+  margin: 0 8px 0 8px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.keypad > div.green {
+.game-icon {
+  pointer-events: none;
+}
+
+.keypad .keypad-row {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 8px;
+  touch-action: manipulation;
+}
+
+.keypad .keypad-row > div {
+  font-family: inherit;
+  font-weight: 550;
+  border: 0;
+  padding: 0;
+  margin: 0 6px 0 0;
+  height: 58px;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color:#d3d6da;
+  color: #000000;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+}
+
+.keypad .keypad-row .key-module_half {
+  flex: 0.5;
+  background-color: #ffffff;
+}
+
+.keypad .keypad-row .Backspace {
+  padding: 0 10px 0 10px;
+}
+
+.keypad .keypad-row .Enter {
+  font-size: 15px;
+  padding: 0 5px 0 5px;
+}
+
+.keypad .keypad-row > div.green {
   background: #6aaa64;
   color: #fff;
   transition: all 0.3s ease-in;
 }
-.keypad > div.yellow {
+.keypad .keypad-row > div.yellow {
   background: #e2cc68;
   color: #fff;
   transition: all 0.3s ease-in;
 }
-.keypad > div.grey {
+.keypad .keypad-row > div.grey {
   background: #787c7e;
   color: #fff;
   transition: all 0.3s ease-in;
@@ -132,6 +253,133 @@ h1 {
   letter-spacing: 1px;
 }
 
+.help-dialog {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  background-color: #ffffff;
+  z-index: 3000;
+  animation: slideDown 0.7s ease normal;
+}
+
+.help-dialog_content {
+  position: relative;
+  color: #000000;
+  padding: 0 32px;
+  max-width: 500px;
+  width: 100%;
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.help-dialog header {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.help-dialog h1 {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.help-dialog_content_close {
+  background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    position: absolute;
+    right: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+.help-dialog_container {
+  height: 100%;
+}
+
+.help-dialog_section {
+  padding: 16px;
+  padding-top: 0px;
+}
+
+.help-dialog_instructions {
+  font-size: 14px;
+  color: #000000;
+}
+
+.help-dialog_examples {
+  border-bottom: 1px solid #d3d6da;
+  border-top: 1px solid #d3d6da;
+}
+
+.help-dialog_example {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.help-dialog_tileContainer {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 4px;
+}
+
+.help-dialog_tileContainer .tile-module_tile {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: bold;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 2px solid #333;
+  color: #000000;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.help-dialog_tileContainer .tile-module_tile[data-state=correct] {
+  border: 2px solid #6aaa64;
+  background-color: #6aaa64;
+  color: #fff;
+}
+
+.help-dialog_tileContainer .tile-module_tile[data-state=present] {
+  border: 2px solid #c9b458;
+  background-color: #c9b458;
+  color: #fff;
+}
+
+.help-dialog_tileContainer .tile-module_tile[data-state=absent] {
+  border: 2px solid #787c7e;
+  background-color: #787c7e;
+  color: #fff;
+}
+
 @keyframes flip {
   0% {
     transform: rotateX(0);
@@ -158,13 +406,64 @@ h1 {
 @keyframes bounce {
   0% {
     transform: scale(1);
-    border: 1px solid #d3d6da;
+    border: 2px solid #d3d6da;
   }
   50% {
     transform: scale(1.2);
   }
   100% {
     transform: scale(1);
-    border: 1px solid #878a8c;
+    border: 2px solid #878a8c;
+  }
+}
+
+@keyframes slideDown{
+  from {
+      transform: translateY(-110%);
+  }
+  to {
+      transform: translateY(0%);
+  }
+}
+
+@keyframes slideUp{
+  from {
+      transform: translateY(0%);
+  }
+  to {
+      transform: translateY(-110%);
+  }
+}
+
+@media (max-height: 600px) {
+  .row .row-individual-square {
+    font-size: 1em;
+    line-height: 1em;
+  }
+}
+
+@media (min-width: 415px) {
+  .header {
+    padding: 0px 16px;
+  }
+}
+
+@media (max-width: 360px) {
+   .header .header-module_title {
+    font-size: 22px;
+    letter-spacing: 0.1rem;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .help-dialog_content {
+      max-width: 100%;
+      padding: 0;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .help-dialog_content_close{
+      padding: 0 16px;
   }
 }

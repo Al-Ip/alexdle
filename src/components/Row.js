@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Row({guess, currentGuess}) {
-
     if(guess){
         return (
             <div className='row past'>
@@ -29,11 +28,11 @@ export default function Row({guess, currentGuess}) {
 
   return (
     <div className='row'>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className='row-individual-square'></div>
+        <div className='row-individual-square'></div>
+        <div className='row-individual-square'></div>
+        <div className='row-individual-square'></div>
+        <div className='row-individual-square'></div>
     </div>
   )
 }

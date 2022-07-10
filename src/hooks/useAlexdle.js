@@ -25,12 +25,12 @@ const useAlexdle = (solution) => {
 
         // find any yellow letters
         formattedGuess.forEach((l, i) => {
-            if(solutionArray.includes(l.key) && l.colour !== 'green'){
+            if(solutionArray.includes(l.key) && (l.colour !== 'green')){
                 formattedGuess[i].colour = 'yellow'
                 solutionArray[solutionArray.indexOf(l.key)] = null
             }
         })
-
+        
         return formattedGuess
     }
 
@@ -38,6 +38,8 @@ const useAlexdle = (solution) => {
     // check if guess is correct i.e. if it matches solution word
     // add turn number
     const addNewGuess = (formattedGuess) => {
+        console.log(currentGuess)
+        console.log(solution)
         if(currentGuess === solution){
             setIsCorrect(true)
         }
@@ -68,7 +70,7 @@ const useAlexdle = (solution) => {
                     newKeys[l.key] = 'yellow'
                     return
                 }
-                else if(l.colour === 'grey' && (currentColour !== 'green' || currentColour !== 'yellow')){
+                else if(l.colour === 'grey' && currentColour !== ('green' || 'yellow')){
                     newKeys[l.key] = 'grey'
                     return
                 }
@@ -81,10 +83,14 @@ const useAlexdle = (solution) => {
     }
 
     // handle keyup/ enter event and track guess
-    const handleKeyup = ({key}) => {
-        var isOnlyLetters = /^[A-Za-z]$/.test(key)
+    const handleKeyup = (e) => {
+        let dataKey = e.target.getAttribute('data-key');
+        if(dataKey){
+            e.key = dataKey
+        }
+        var isOnlyLetters = /^[A-Za-z]$/.test(e.key)
 
-        if(key === 'Enter'){
+        if(e.key === 'Enter'){
             if(turn > 5){
                 console.log('Used up all your guesses')
                 return
@@ -99,10 +105,9 @@ const useAlexdle = (solution) => {
             }
 
             addNewGuess(formatGuess())
-            console.log(formatGuess())
         }
 
-        if(key === 'Backspace'){
+        if(e.key === 'Backspace'){
             setCurrentGuess((prev) => {
                 return prev.slice(0, -1)
             })
@@ -111,7 +116,7 @@ const useAlexdle = (solution) => {
 
         if(isOnlyLetters && currentGuess.length < 5){
             setCurrentGuess((prev) => {
-                return prev + key
+                return prev + e.key
             })
         }
     }
