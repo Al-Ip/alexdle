@@ -1,5 +1,5 @@
-body {
-  height: 100vh;
+html, body {
+  height: 100%;
   background-color: #ffffff;
   margin: 0px;
   padding: 0px;
@@ -155,9 +155,8 @@ body {
 }
 
 .keypad {
-  flex: auto;
   height: 200px;
-  margin: 0 8px 0 8px;
+  margin: 0 8px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
