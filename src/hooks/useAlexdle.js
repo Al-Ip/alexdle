@@ -25,12 +25,12 @@ const useAlexdle = (solution) => {
 
         // find any yellow letters
         formattedGuess.forEach((l, i) => {
-            if(solutionArray.includes(l.key) && l.colour !== 'green'){
+            if(solutionArray.includes(l.key) && (l.colour !== 'green')){
                 formattedGuess[i].colour = 'yellow'
                 solutionArray[solutionArray.indexOf(l.key)] = null
             }
         })
-
+        
         return formattedGuess
     }
 
@@ -70,7 +70,7 @@ const useAlexdle = (solution) => {
                     newKeys[l.key] = 'yellow'
                     return
                 }
-                else if(l.colour === 'grey' && (currentColour !== 'green' || currentColour !== 'yellow')){
+                else if(l.colour === 'grey' && currentColour !== ('green' || 'yellow')){
                     newKeys[l.key] = 'grey'
                     return
                 }
