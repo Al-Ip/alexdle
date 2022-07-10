@@ -1,8 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
 import Alexdle from "./components/Alexdle";
+import Header from "./components/Header";
+import useHeader from './hooks/useHeader'
 
 function App() {
   const [solution, setSolution] = useState(null)
+  const { isHelpShown, handleHelpClick } = useHeader()
 
   useEffect(() => {
     fetch('http://192.168.0.122:3001/solutions')
@@ -16,7 +19,8 @@ function App() {
   
   return (
     <Fragment>
-      {solution && <Alexdle solution={solution}/>}
+      <Header handleHelpClick={handleHelpClick} />
+      {solution && <Alexdle solution={solution} isHelpShown={isHelpShown} handleHelpClick={handleHelpClick}/>}
     </Fragment>
   );
 }

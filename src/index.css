@@ -253,6 +253,133 @@ body {
   letter-spacing: 1px;
 }
 
+.help-dialog {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  background-color: #ffffff;
+  z-index: 3000;
+  animation: slideDown 0.7s ease normal;
+}
+
+.help-dialog_content {
+  position: relative;
+  color: #000000;
+  padding: 0 32px;
+  max-width: 500px;
+  width: 100%;
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.help-dialog header {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.help-dialog h1 {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.help-dialog_content_close {
+  background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    position: absolute;
+    right: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    margin: 0;
+}
+
+.help-dialog_container {
+  height: 100%;
+}
+
+.help-dialog_section {
+  padding: 16px;
+  padding-top: 0px;
+}
+
+.help-dialog_instructions {
+  font-size: 14px;
+  color: #000000;
+}
+
+.help-dialog_examples {
+  border-bottom: 1px solid #d3d6da;
+  border-top: 1px solid #d3d6da;
+}
+
+.help-dialog_example {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.help-dialog_tileContainer {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 4px;
+}
+
+.help-dialog_tileContainer .tile-module_tile {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: bold;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 2px solid #333;
+  color: #000000;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.help-dialog_tileContainer .tile-module_tile[data-state=correct] {
+  border: 2px solid #6aaa64;
+  background-color: #6aaa64;
+  color: #fff;
+}
+
+.help-dialog_tileContainer .tile-module_tile[data-state=present] {
+  border: 2px solid #c9b458;
+  background-color: #c9b458;
+  color: #fff;
+}
+
+.help-dialog_tileContainer .tile-module_tile[data-state=absent] {
+  border: 2px solid #787c7e;
+  background-color: #787c7e;
+  color: #fff;
+}
+
 @keyframes flip {
   0% {
     transform: rotateX(0);
@@ -290,6 +417,24 @@ body {
   }
 }
 
+@keyframes slideDown{
+  from {
+      transform: translateY(-110%);
+  }
+  to {
+      transform: translateY(0%);
+  }
+}
+
+@keyframes slideUp{
+  from {
+      transform: translateY(0%);
+  }
+  to {
+      transform: translateY(-110%);
+  }
+}
+
 @media (max-height: 600px) {
   .row .row-individual-square {
     font-size: 1em;
@@ -307,5 +452,18 @@ body {
    .header .header-module_title {
     font-size: 22px;
     letter-spacing: 0.1rem;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .help-dialog_content {
+      max-width: 100%;
+      padding: 0;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .help-dialog_content_close{
+      padding: 0 16px;
   }
 }
