@@ -1,17 +1,16 @@
 body {
   height: 100vh;
   background-color: #ffffff;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   overflow-y: hidden;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.app-module{
+.app-module {
   width: 100%;
-  max-width: 500px;
+  height: 100%;
   margin: 0 auto;
-  height: calc(100% - 50px);
   display: flex;
   flex-direction: column;
 }
@@ -156,8 +155,9 @@ body {
 }
 
 .keypad {
+  flex: auto;
   height: 200px;
-  margin: 0 8px;
+  margin: 0 8px 0 8px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -171,6 +171,7 @@ body {
 .keypad .keypad-row {
   display: flex;
   width: 100%;
+  max-width: 500px;
   margin: 0 auto 8px;
   touch-action: manipulation;
 }
@@ -308,39 +309,3 @@ body {
     letter-spacing: 0.1rem;
   }
 }
-
-/* Small Devices, Tablets */
-/* @media only screen and (min-width : 768px) {
-  body {
-    width: 75%;
-  }
-} */
-
-/* Medium Devices, Desktops */
-/* @media only screen and (min-width : 992px) {
-  body {
-    width: 50%;
-  }
-} */
-
-/* @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  .Page-module_content__hwN4l {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .Page-module_close__D3gaa {
-    padding: 0 16px;
-  }
-} */
-
-
-/* @media (max-width: 991.98px) {
-  .mobileColumn {
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: nowrap
-  }
-} */
